@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title Contratos da Entidade
+    link(rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css")
+  body
+    header(class="w3-container w3-teal")
+      h1 Contratos da Entidade
+    div(class="w3-container")
+      table(class="w3-table-all w3-hoverable")
+        thead
+          tr(class="w3-light-grey")
+            th ID Contrato
+            th Objeto do Contrato
+            th Data de Celebração do Contrato
+            th Preço Contratual
+            th NIPC Entidade Comunicante
+            th Entidade Comunicante
+        tbody
+          each contrato in contratos
+            tr
+              td: a(href=`/${contrato._id}`, class="w3-text-blue") #{contrato._id}
+              td #{contrato.objectoContrato}
+              td #{contrato.dataCelebracaoContrato}
+              td #{contrato.precoContratual}
+              td: a(href=`/entidades/${contrato.NIPC_entidade_comunicante}`, class="w3-text-blue") #{contrato.NIPC_entidade_comunicante}
+              td #{contrato.entidade_comunicante}
+      footer.w3-container.w3-teal
+        address Gerado por EngWeb2024 em #{data}
